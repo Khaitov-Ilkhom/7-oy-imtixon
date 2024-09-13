@@ -25,8 +25,6 @@ const Header = () => {
     if (token) {
       const user = JSON.parse(atob(JSON.parse(token).token.split(".")[1]))
       setUserInfo(user)
-    } else {
-      navigate("/")
     }
   }, [token]);
 
