@@ -91,3 +91,10 @@ export type Recipe = {
   reviewCount: number;
   mealType: string[];
 };
+
+export interface Data {
+  recipes: Recipe[];
+  total:   number;
+  skip:    number;
+  limit:   number;
+}

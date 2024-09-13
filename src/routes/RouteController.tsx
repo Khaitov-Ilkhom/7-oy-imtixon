@@ -45,7 +45,8 @@ const RouteController = () => {
       element: <Suspense><Liked/></Suspense>
     },
     {
-
+      path: "carts",
+      element: <Suspense><Carts/></Suspense>
     }
   ])
 }

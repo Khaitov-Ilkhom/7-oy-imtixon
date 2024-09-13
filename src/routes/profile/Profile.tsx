@@ -2,7 +2,7 @@ import Header from "../../components/header/Header.tsx";
 import {Image} from "antd";
 
 const Profile = () => {
-  const token = JSON.parse(localStorage.getItem("token"))
+  const token = JSON.parse(localStorage.getItem("token") as string)
   const user = JSON.parse(atob(token.token.split(".")[1]))
 
   return (

@@ -4,15 +4,15 @@ import {Button, Form, Input, message, Typography} from "antd";
 import {useSignUpMutation} from "../../../redux/api/authApi.ts";
 import {Link, useNavigate} from "react-router-dom";
 
-export type FieldType = {
-  username: string,
-  password: string
+type FieldType = {
+  firstName: string,
+  lastName: string
 }
 
 const {Title, Text} = Typography
 
 const Login: FC = () => {
-  const [signInRequest, {data, isSuccess, isError}] = useSignUpMutation();
+  const [signInRequest, {isSuccess, isError}] = useSignUpMutation();
   const navigate = useNavigate()
 
   const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
@@ -50,7 +50,7 @@ const Login: FC = () => {
          <Form.Item<FieldType>
              label="FirstName"
              name="firstName"
-             rules={[{ required: true, message: "Please input your email!" }]}
+             rules={[{ required: true, message: "Please input your firstname!" }]}
          >
            <Input />
          </Form.Item>
@@ -58,7 +58,7 @@ const Login: FC = () => {
          <Form.Item<FieldType>
              label="LastName"
              name="lastName"
-             rules={[{ required: true, message: "Please input your email!" }]}
+             rules={[{ required: true, message: "Please input your lastname!" }]}
          >
            <Input />
          </Form.Item>

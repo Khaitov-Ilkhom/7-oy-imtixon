@@ -1,9 +1,10 @@
 import Card from "../card/Card.tsx";
 import {useAllProductsQuery} from "../../redux/api/productsApi.ts";
+import {Data, Recipe} from "../../types";
 
 const Products = () => {
-  const {data} = useAllProductsQuery()
-  const recipes = data?.recipes?.map((product) => product).sort((a, b) => b.rating - a.rating).slice(0, 4);
+  const {data}: Data = useAllProductsQuery()
+  const recipes: Recipe[] = data?.recipes?.map((product) => product).sort((a, b) => b.rating - a.rating).slice(0, 4);
 
   return (
       <div className="mb-8">

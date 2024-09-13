@@ -5,7 +5,7 @@ type TInitialState = {
 }
 
 const initialState: TInitialState = {
-  token: JSON.parse(localStorage.getItem("token")) as string || ''
+  token: JSON.parse(localStorage.getItem("token")) as string || '' as string
 }
 
 const authSlice = createSlice({

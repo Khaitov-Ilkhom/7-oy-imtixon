@@ -2,10 +2,11 @@ import Header from "../../components/header/Header.tsx";
 import {useParams} from "react-router-dom";
 import {useGetProductQuery} from "../../redux/api/productsApi.ts";
 import Footer from "../../components/footer/Footer.tsx";
+import {Recipe} from "../../types";
 
 const Details = () => {
   const {id} = useParams()
-  const {data} = useGetProductQuery(id)
+  const {data}: Recipe = useGetProductQuery(id)
   const recipe = data
 
   return (
