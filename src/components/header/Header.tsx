@@ -3,7 +3,6 @@ import {Badge, Dropdown, Input, Space} from "antd";
 import {FiSearch} from "react-icons/fi";
 import {FaHeart, FaRegHeart, FaRegUserCircle} from "react-icons/fa";
 import {IoLogInOutline, IoLogOutOutline} from "react-icons/io5";
-import {logOut} from "../../redux/slice/authSlice.ts";
 import {Link, useNavigate} from "react-router-dom";
 import {SlUser} from "react-icons/sl";
 import {useDispatch, useSelector} from "react-redux";
@@ -18,7 +17,6 @@ const Header = () => {
   })
   const navigate = useNavigate()
   const token = localStorage.getItem("token")
-  const dispatch = useDispatch<AppDispatch>()
   const {products}: { products: Recipe[] } = useSelector((state: RootState) => state.like);
 
   useEffect(() => {
@@ -46,13 +44,6 @@ const Header = () => {
           </div>,
           key: '1',
         },
-        {
-          label: <div onClick={() => dispatch(logOut)} className="bg-transparent flex items-center gap-2 text-[#596780]">
-            <span>Log Out</span>
-            <IoLogOutOutline/>
-          </div>,
-          key: '2',
-        }
       ];
 
   return (

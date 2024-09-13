@@ -1,18 +1,18 @@
-import {createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 type TInitialState = {
   token: string
 }
 
 const initialState: TInitialState = {
-  token: JSON.parse(localStorage.getItem("token")) as string || '' as string
+  token: JSON.parse(localStorage.getItem("token")) || ''
 }
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    signIn: (state, action: PayloadAction<{token: string}>) => {
+    signIn: (state, action: PayloadAction<{ token: string }>) => {
       state.token = action.payload
       localStorage.setItem("token", JSON.stringify(state.token))
     },

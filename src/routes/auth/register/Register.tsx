@@ -11,7 +11,7 @@ type FieldType = {
 
 const {Title, Text} = Typography
 
-const Login: FC = () => {
+const Register: FC = () => {
   const [signInRequest, {isSuccess, isError}] = useSignUpMutation();
   const navigate = useNavigate()
 
@@ -76,4 +76,4 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default Register;
