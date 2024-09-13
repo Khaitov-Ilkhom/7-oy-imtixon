@@ -6,8 +6,8 @@ import {Recipe} from "../../types";
 
 const Details = () => {
   const {id} = useParams()
-  const {data}: Recipe = useGetProductQuery(id)
-  const recipe = data
+  const {data} = useGetProductQuery(id)
+  const recipe: Recipe = data
 
   return (
       <div className="w-full min-h-screen bg-white">
