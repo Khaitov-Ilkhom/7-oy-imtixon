@@ -9,7 +9,8 @@ const authApi = api.injectEndpoints?.({
         url: "/users/add",
         method: "POST",
         body
-      })
+      }),
+
     }),
     signIn: build.mutation<Response, FieldType>({
       query: (body) => ({

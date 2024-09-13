@@ -7,14 +7,23 @@ const productsApi = api.injectEndpoints?.({
     allProducts: build.query<{recipes: Recipe[]}, void>({
       query: () => ({
         url: "/recipes",
-      })
+      }),
+      providesTags: ["RECIPE"]
     }),
     getProduct: build.query<Recipe, any>({
       query: (id) => ({
         url: `/recipes/${id}`,
-      })
-    })
+      }),
+      providesTags: ["RECIPE"]
+    }),
+    searchRecipe: build.query({
+      query: (params) => ({
+        url: "/recipes/search",
+        params
+      }),
+      providesTags: ["RECIPE"]
+    }),
   })
 })
 
-export const {useAllProductsQuery, useGetProductQuery} = productsApi
+export const {useAllProductsQuery, useGetProductQuery, useSearchRecipeQuery} = productsApi
