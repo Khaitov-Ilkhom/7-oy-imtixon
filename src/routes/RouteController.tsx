@@ -13,6 +13,7 @@ const Liked: LazyExoticComponent<any> = React.lazy(() => import("../routes/liked
 const Carts: LazyExoticComponent<any> = React.lazy(() => import("../routes/carts/Carts.tsx"))
 const Search: LazyExoticComponent<any> = React.lazy(() => import("../routes/search/Search.tsx"))
 const NotFound: LazyExoticComponent<any> = React.lazy(() => import("../routes/not-found/NotFound.tsx"))
+const Protected: LazyExoticComponent<any> = React.lazy(() => import("../routes/protected/Protected.tsx"))
 
 const RouteController = () => {
   return useRoutes([
@@ -36,7 +37,13 @@ const RouteController = () => {
     },
     {
       path: "profile",
-      element: <Suspense><Profile/></Suspense>
+      element: <Suspense><Protected/></Suspense>,
+      children: [
+        {
+          path: "",
+          element: <Suspense><Profile/></Suspense>
+        }
+      ]
     },
     {
       path: "details/:id",
