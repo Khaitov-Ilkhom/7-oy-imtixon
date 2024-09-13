@@ -1,6 +1,5 @@
 import Card from "../card/Card.tsx";
 import {useAllProductsQuery} from "../../redux/api/productsApi.ts";
-import {Recipe} from "../../types";
 
 const Products = () => {
   const {data} = useAllProductsQuery()
