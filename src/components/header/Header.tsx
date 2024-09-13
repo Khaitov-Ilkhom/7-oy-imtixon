@@ -2,12 +2,12 @@ import logo from "../../images/logo.png"
 import {Badge, Dropdown, Input, Space} from "antd";
 import {FiSearch} from "react-icons/fi";
 import {FaHeart, FaRegHeart, FaRegUserCircle} from "react-icons/fa";
-import {IoLogInOutline, IoLogOutOutline} from "react-icons/io5";
+import {IoLogInOutline} from "react-icons/io5";
 import {Link, useNavigate} from "react-router-dom";
 import {SlUser} from "react-icons/sl";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {Recipe} from "../../types";
-import {AppDispatch, RootState} from "../../redux/store";
+import {RootState} from "../../redux/store";
 import {useEffect, useState} from "react";
 
 
