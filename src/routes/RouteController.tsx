@@ -1,4 +1,4 @@
-import {useRoutes} from "react-router-dom";
+import {Navigate, useRoutes} from "react-router-dom";
 import React, {LazyExoticComponent} from "react";
 import {SuspenseElement as Suspense} from "../utils";
 
@@ -12,6 +12,7 @@ const Details: LazyExoticComponent<any> = React.lazy(() => import("../routes/det
 const Liked: LazyExoticComponent<any> = React.lazy(() => import("../routes/liked/Liked.tsx"))
 const Carts: LazyExoticComponent<any> = React.lazy(() => import("../routes/carts/Carts.tsx"))
 const Search: LazyExoticComponent<any> = React.lazy(() => import("../routes/search/Search.tsx"))
+const NotFound: LazyExoticComponent<any> = React.lazy(() => import("../routes/not-found/NotFound.tsx"))
 
 const RouteController = () => {
   return useRoutes([
@@ -52,7 +53,15 @@ const RouteController = () => {
     {
       path: "search",
       element: <Suspense><Search/></Suspense>
-    }
+    },
+    {
+      path: "notfound",
+      element: <Suspense><NotFound/></Suspense>
+    },
+    {
+      path: "*",
+      element: <Suspense><Navigate to="notfound"/></Suspense>
+    },
   ])
 }
 export default RouteController

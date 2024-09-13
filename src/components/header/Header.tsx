@@ -1,5 +1,5 @@
 import logo from "../../images/logo.png"
-import {AutoComplete, Badge, Dropdown, Form, Input, Space} from "antd";
+import {AutoComplete, Badge, Dropdown, Form, Space} from "antd";
 import {FaHeart, FaRegHeart, FaRegUserCircle} from "react-icons/fa";
 import {IoLogInOutline} from "react-icons/io5";
 import {Link, useNavigate} from "react-router-dom";
