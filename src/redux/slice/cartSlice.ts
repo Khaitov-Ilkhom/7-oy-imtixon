@@ -3,7 +3,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Recipe} from "../../types";
 
 interface IInitialState {
-  cart: Recipe[]
+  cart: string
 }
 
 const initialState: IInitialState = {

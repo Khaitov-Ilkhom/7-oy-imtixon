@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 type TInitialState = {
-  token: string
+  token: string | null
 }
 
 const initialState: TInitialState = {

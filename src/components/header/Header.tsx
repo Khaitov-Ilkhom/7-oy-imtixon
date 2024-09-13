@@ -17,7 +17,7 @@ import {useSearchRecipeQuery} from "../../redux/api/productsApi.ts";
 const Header = () => {
   const [search, setSearch] = useState("");
   const {getParam} = useSearchParamsHook()
-  const {data: searchData} = useSearchRecipeQuery({q: search})
+  const {data: searchData} : Recipe[] = useSearchRecipeQuery({q: search})
   const [userInfo, setUserInfo] = useState({
     firstName: ""
   })
@@ -32,13 +32,13 @@ const Header = () => {
     }
   }, [token]);
 
-  const handleSearchSubmit = (value) => {
+  const handleSearchSubmit = (value : string) => {
     navigate(`/search?q=${value.search}`);
   };
   const onSelect = (data) => {
     console.log("onSelect", data);
   };
-  const loadData = async (searchText) => {
+  const loadData = async (searchText : string) => {
     try {
       setSearch(searchText);
     } catch (error) {
