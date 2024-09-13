@@ -9,7 +9,7 @@ const productsApi = api.injectEndpoints?.({
         url: "/recipes",
       })
     }),
-    getProduct: build.query<Recipe, number>({
+    getProduct: build.query<Recipe, any>({
       query: (id) => ({
         url: `/recipes/${id}`,
       })
