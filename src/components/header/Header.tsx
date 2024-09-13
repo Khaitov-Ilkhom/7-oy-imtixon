@@ -1,6 +1,5 @@
 import logo from "../../images/logo.png"
-import {Badge, Dropdown, Input, Space} from "antd";
-import {FiSearch} from "react-icons/fi";
+import {AutoComplete, Badge, Dropdown, Form, Input, Space} from "antd";
 import {FaHeart, FaRegHeart, FaRegUserCircle} from "react-icons/fa";
 import {IoLogInOutline} from "react-icons/io5";
 import {Link, useNavigate} from "react-router-dom";
@@ -9,9 +8,16 @@ import {useSelector} from "react-redux";
 import {Recipe} from "../../types";
 import {RootState} from "../../redux/store";
 import {useEffect, useState} from "react";
+import {BiSearch} from "react-icons/bi";
+import {LuSettings2} from "react-icons/lu";
+import useSearchParamsHook from "../../paramsHook/paramsHook.ts";
+import {useSearchRecipeQuery} from "../../redux/api/productsApi.ts";
 
 
 const Header = () => {
+  const [search, setSearch] = useState("");
+  const {getParam} = useSearchParamsHook()
+  const {data: searchData} = useSearchRecipeQuery({q: search})
   const [userInfo, setUserInfo] = useState({
     firstName: ""
   })
@@ -26,8 +32,21 @@ const Header = () => {
     }
   }, [token]);
 
-  const items =
-      [
+  const handleSearchSubmit = (value) => {
+    navigate(`/search?q=${value.search}`);
+  };
+  const onSelect = (data) => {
+    console.log("onSelect", data);
+  };
+  const loadData = async (searchText) => {
+    try {
+      setSearch(searchText);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const items = [
         {
           label: userInfo && userInfo ?
               <div onClick={() => navigate("/profile")}
@@ -52,7 +71,41 @@ const Header = () => {
           <Link to='/'><img className="max-w-[150px]" src={logo as string} alt="Logo"/></Link>
         </div>
         <div>
-          <Input placeholder="default size" prefix={<FiSearch/>}/>
+          <Form initialValues={{search: getParam("q")}} onFinish={handleSearchSubmit}
+                className="flex items-center gap-3 bg-[#fefefe] h-[45px] w-[500px] py-1 px-4 rounded-[62px] border border-gray-300 hover:border-[#1677FF]">
+            <BiSearch className="text-[#0000005f] text-2xl"/>
+            <Form.Item
+                name="search"
+                className="w-full !mb-0"
+                rules={[{required: false}]}
+            >
+              <AutoComplete
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      navigate(`/search?q=${search}`);
+                    }
+                  }}
+                  options={searchData?.payload?.map((item) => ({
+                    label: (
+                        <Link
+                            className="block"
+                            key={item._id}
+                            to={`/car-details/${item._id}`}
+                        >
+                          {item.name}
+                        </Link>
+                    ),
+                  }))}
+                  className="search_input"
+                  onSelect={onSelect}
+                  onSearch={(text) =>
+                      text ? loadData(text) : loadData({payload: []})
+                  }
+                  placeholder="Search..."
+              />
+            </Form.Item>
+            <LuSettings2 className="text-[24px] text-gray-400"/>
+          </Form>
         </div>
         <div>
           <ul>

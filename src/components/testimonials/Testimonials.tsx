@@ -3,7 +3,7 @@ import RenderRating from "../render-rating/RenderRating.tsx";
 const Testimonials = () => {
 
   return (
-      <div className="bg-[#56B2801A] py-[90px]">
+      <div className="max-w-[1440px] bg-[#56B2801A] py-[90px]">
         <div className="">
           <div className=" text-center text-[#0b254b] text-[40px] font-medium  leading-[57.60px]">
             Testimonials
@@ -12,7 +12,7 @@ const Testimonials = () => {
             Some quotes from our happy customers
           </div>
           <div className="w-full ">
-            <div className="grid grid-cols-3 gap-8 ">
+            <div className="grid grid-cols-3 gap-8 px-[60px]">
               <div
                   className="flex flex-col  items-center my-[40px] w-full max-w-[400px] p-6 bg-white shadow-md rounded-xl transition-transform hover:scale-105"
               >
