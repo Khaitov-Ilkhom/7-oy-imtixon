@@ -1,0 +1,8 @@
+.hero{
+  background-image: url('../../images/photo_2024-09-13_11-02-24.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 700px;
+  width: 100%;
+}
