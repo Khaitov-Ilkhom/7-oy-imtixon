@@ -16,7 +16,7 @@ const productsApi = api.injectEndpoints?.({
       }),
       providesTags: ["RECIPE"]
     }),
-    searchRecipe: build.query({
+    searchRecipe: build.query<{recipes: Recipe[]}, void>({
       query: (params) => ({
         url: "/recipes/search",
         params
