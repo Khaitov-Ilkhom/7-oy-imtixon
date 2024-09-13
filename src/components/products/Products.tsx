@@ -6,7 +6,7 @@ import {Recipe} from "../../types";
 const Products = () => {
   const [limit, setLimit] = useState<number>(8)
   const {data} = useAllProductsQuery()
-  const recipes: Recipe[] = data?.recipes
+  const recipes = data?.recipes
 
   return (
       <div>
