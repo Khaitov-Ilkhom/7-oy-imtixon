@@ -1,6 +1,6 @@
 import {AiFillStar, AiOutlineStar} from "react-icons/ai";
 
-const RenderRating = ({rate}: number) => {
+const RenderRating = (rate: number) => {
   if (rate > 5) {
     rate = 5;
   }

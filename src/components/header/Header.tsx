@@ -17,7 +17,7 @@ import {useSearchRecipeQuery} from "../../redux/api/productsApi.ts";
 const Header = () => {
   const [search, setSearch] = useState("");
   const {getParam} = useSearchParamsHook()
-  const {data: searchData} : Recipe[] = useSearchRecipeQuery({q: search})
+  const {data: searchData} = useSearchRecipeQuery({q: search})
   const [userInfo, setUserInfo] = useState({
     firstName: ""
   })
