@@ -1,11 +1,11 @@
 import Card from "../card/Card.tsx";
 import {useAllProductsQuery} from "../../redux/api/productsApi.ts";
 import {useState} from "react";
-import {Data, Recipe} from "../../types";
+import {Recipe} from "../../types";
 
 const Products = () => {
   const [limit, setLimit] = useState<number>(8)
-  const {data}: Data = useAllProductsQuery()
+  const {data} = useAllProductsQuery()
   const recipes: Recipe[] = data?.recipes
 
   return (
