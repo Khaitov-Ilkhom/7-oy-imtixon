@@ -98,7 +98,7 @@ const Header = () => {
                   }))}
                   className="search_input"
                   onSelect={onSelect}
-                  onSearch={(text) =>
+                  onSearch={(text: string) =>
                       text ? loadData(text) : loadData({payload: []})
                   }
                   placeholder="Search..."
